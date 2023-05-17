@@ -15,12 +15,16 @@ const server = http.createServer((req: http.IncomingMessage, res: http.ServerRes
 
 
 
-server.listen(2222, (err: Error | object) => {
-  // err를 매개변수로 두고 싶지만 에러 메세지로 호출과 일치하는 오보로드가 없습니다. 라고 문구가 뜬다.
+// server.listen(2222, () : void => {
+//   // err를 매개변수로 두고 싶지만 에러 메세지로 호출과 일치하는 오보로드가 없습니다. 라고 문구가 뜬다.
+
+// });
+
+server.listen(2222, (err) => {
   if (err) {
-    console.log(err);
+    throw err.error
+    // console.log(err);
   }
-  else {
-    console.log('성공');
-  }
+  throw new Error("성공");
+
 });
